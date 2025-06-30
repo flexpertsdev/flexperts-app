@@ -14,6 +14,13 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function initialize() {
     try {
+      // Skip initialization if Supabase is not configured
+      if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        console.warn('Supabase not configured. Auth features will be disabled.')
+        loading.value = false
+        return
+      }
+
       const { data: { session } } = await supabase.auth.getSession()
       user.value = session?.user ?? null
     } catch (err) {
