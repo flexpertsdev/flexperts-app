@@ -53,7 +53,7 @@ const router = createRouter({
 })
 
 // Navigation guards
-router.beforeEach(async (to, _from, next) => {
+router.beforeEach(async (_to, _from, next) => {
   // Skip auth check for now - all pages are public
   next()
 })
