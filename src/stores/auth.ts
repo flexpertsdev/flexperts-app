@@ -77,16 +77,8 @@ export const useAuthStore = defineStore('auth', () => {
       user.value = data.user
       
       if (data.user) {
-        // Create profile
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert({
-            id: data.user.id,
-            email: data.user.email!,
-            full_name: fullName
-          })
-        
-        if (profileError) console.error('Error creating profile:', profileError)
+        // Profile will be created automatically by database trigger
+        console.log('User created successfully:', data.user.email)
       }
       
       router.push('/welcome')
