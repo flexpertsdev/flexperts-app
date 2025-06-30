@@ -53,7 +53,7 @@ const router = createRouter({
 })
 
 // Navigation guards
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   // TODO: Add auth check
   const isAuthenticated = false // Replace with actual auth check
   

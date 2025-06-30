@@ -96,7 +96,7 @@ export const useAuthStore = defineStore('auth', () => {
     error.value = null
     
     try {
-      const { data, error: providerError } = await supabase.auth.signInWithOAuth({
+      const { error: providerError } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
           redirectTo: `${window.location.origin}/app`

@@ -167,9 +167,7 @@ const form = ref({
 const handleSignup = async () => {
   loading.value = true
   try {
-    await authStore.signUp(form.value.email, form.value.password, {
-      full_name: form.value.name
-    })
+    await authStore.signUp(form.value.email, form.value.password, form.value.name)
     router.push('/welcome')
   } catch (error) {
     console.error('Signup error:', error)

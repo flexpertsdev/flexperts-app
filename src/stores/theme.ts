@@ -56,10 +56,18 @@ export const useThemeStore = defineStore('theme', () => {
     applyTheme()
   })
 
+  function toggleTheme() {
+    const themes: Theme[] = ['light', 'dark', 'system']
+    const currentIndex = themes.indexOf(theme.value)
+    const nextIndex = (currentIndex + 1) % themes.length
+    setTheme(themes[nextIndex])
+  }
+
   return {
     theme,
     resolvedTheme,
     initialize,
-    setTheme
+    setTheme,
+    toggleTheme
   }
 })
