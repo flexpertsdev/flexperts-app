@@ -54,16 +54,8 @@ const router = createRouter({
 
 // Navigation guards
 router.beforeEach(async (to, _from, next) => {
-  // TODO: Add auth check
-  const isAuthenticated = false // Replace with actual auth check
-  
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    next({ name: 'login', query: { redirect: to.fullPath } })
-  } else if ((to.name === 'login' || to.name === 'signup') && isAuthenticated) {
-    next({ name: 'dashboard' })
-  } else {
-    next()
-  }
+  // Skip auth check for now - all pages are public
+  next()
 })
 
 export default router
