@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Import legacy config for now */
+@config "../tailwind.config.js";
+
+/* Custom theme configuration for Tailwind v4 */
+@theme {
+  --font-sans: 'Quicksand', system-ui, -apple-system, sans-serif;
+  --color-brand-primary: oklch(0.74 0.19 142.07);
+  --color-brand-primary-hover: oklch(0.66 0.20 142.07);
+  --color-brand-primary-light: oklch(0.90 0.12 142.07);
+}
 
 @layer base {
   :root {
